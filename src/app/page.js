@@ -3,6 +3,13 @@
 import { useEffect } from 'react'
 import Navigation from '@/components/Navigation'
 import HeroSection from '@/components/HeroSection'
+import SkillsSection from '@/components/SkillsSection'
+import ProcessSection from '@/components/ProcessSection'
+import ProjectSection from '@/components/ProjectSection'
+import VisionSection from '@/components/VisionSection'
+import CTASection from '@/components/CTASection'
+import Footer from '@/components/Footer'
+import BackToTop from '@/components/BackToTop'
 
 export default function Home() {
   useEffect(() => {
@@ -88,11 +95,15 @@ export default function Home() {
 
   return (
     <main>
+      <BackToTop />
       <Navigation />
       <HeroSection />
-      <div className="min-h-screen flex items-center justify-center">
-        <p className="text-slate-600 dark:text-slate-400">More sections coming soon...</p>
-      </div>
+      <SkillsSection />
+      <ProcessSection />
+      <ProjectSection />
+      <VisionSection />
+      <CTASection />
+      <Footer />
     </main>
   )
 }
