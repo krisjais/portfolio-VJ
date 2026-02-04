@@ -3,79 +3,96 @@
 import { useEffect } from 'react'
 import Navigation from '@/components/Navigation'
 import HeroSection from '@/components/HeroSection'
-import SkillsSection from '@/components/SkillsSection'
-import ProcessSection from '@/components/ProcessSection'
-import ProjectSection from '@/components/ProjectSection'
-import VisionSection from '@/components/VisionSection'
-import CTASection from '@/components/CTASection'
-import Footer from '@/components/Footer'
-import BackToTop from '@/components/BackToTop'
 
 export default function Home() {
   useEffect(() => {
-    // Theme Logic
-    const themeToggle = document.getElementById('theme-toggle')
-    const themeIcon = document.getElementById('theme-icon')
-    const html = document.documentElement
-
-    // Safely check localStorage and system preference
-    try {
-      if (typeof window !== 'undefined') {
-        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-          html.classList.add('dark')
-          if (themeIcon) themeIcon.classList.replace('fa-moon', 'fa-sun')
-        }
-      }
-    } catch (error) {
-      console.log('Theme initialization error:', error)
-    }
-
-    const handleThemeToggle = () => {
-      html.classList.toggle('dark')
-      const isDark = html.classList.contains('dark')
-      if (themeIcon) {
-        themeIcon.classList.replace(isDark ? 'fa-moon' : 'fa-sun', isDark ? 'fa-sun' : 'fa-moon')
-      }
+    // Simplified theme logic with better error handling
+    const initializeTheme = () => {
       try {
-        if (typeof window !== 'undefined') {
-          localStorage.theme = isDark ? 'dark' : 'light'
+        const themeToggle = document.getElementById('theme-toggle')
+        const themeIcon = document.getElementById('theme-icon')
+        const html = document.documentElement
+
+        // Check for saved theme or default to system preference
+        if (typeof window !== 'undefined' && localStorage) {
+          const savedTheme = localStorage.getItem('theme')
+          const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+          
+          if (savedTheme === 'dark' || (!savedTheme && systemDark)) {
+            html.classList.add('dark')
+            if (themeIcon) themeIcon.classList.replace('fa-moon', 'fa-sun')
+          }
+        }
+
+        // Theme toggle handler
+        const handleThemeToggle = () => {
+          try {
+            html.classList.toggle('dark')
+            const isDark = html.classList.contains('dark')
+            
+            if (themeIcon) {
+              themeIcon.classList.replace(
+                isDark ? 'fa-moon' : 'fa-sun', 
+                isDark ? 'fa-sun' : 'fa-moon'
+              )
+            }
+            
+            if (typeof window !== 'undefined' && localStorage) {
+              localStorage.setItem('theme', isDark ? 'dark' : 'light')
+            }
+          } catch (error) {
+            console.warn('Theme toggle error:', error)
+          }
+        }
+
+        if (themeToggle) {
+          themeToggle.addEventListener('click', handleThemeToggle)
+          
+          // Cleanup function
+          return () => {
+            themeToggle.removeEventListener('click', handleThemeToggle)
+          }
         }
       } catch (error) {
-        console.log('Theme save error:', error)
+        console.warn('Theme initialization error:', error)
       }
     }
 
-    if (themeToggle) {
-      themeToggle.addEventListener('click', handleThemeToggle)
-    }
+    // Initialize theme
+    const cleanup = initializeTheme()
 
-    // Scroll Observer
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => { 
-        if (entry.isIntersecting) entry.target.classList.add('active') 
-      })
-    }, { threshold: 0.1 })
+    // Intersection Observer for animations
+    try {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { 
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active')
+          }
+        })
+      }, { threshold: 0.1 })
 
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el))
+      // Observe elements with reveal class
+      const revealElements = document.querySelectorAll('.reveal')
+      revealElements.forEach(el => observer.observe(el))
 
-    return () => {
-      if (themeToggle) {
-        themeToggle.removeEventListener('click', handleThemeToggle)
+      // Cleanup observer
+      return () => {
+        if (cleanup) cleanup()
+        observer.disconnect()
       }
+    } catch (error) {
+      console.warn('Observer initialization error:', error)
+      return cleanup
     }
   }, [])
 
   return (
     <main>
-      <BackToTop />
       <Navigation />
       <HeroSection />
-      <SkillsSection />
-      <ProcessSection />
-      <ProjectSection />
-      <VisionSection />
-      <CTASection />
-      <Footer />
+      <div className="min-h-screen flex items-center justify-center">
+        <p className="text-slate-600 dark:text-slate-400">More sections coming soon...</p>
+      </div>
     </main>
   )
 }
