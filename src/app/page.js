@@ -1,15 +1,15 @@
 'use client'
 
 import { useEffect } from 'react'
-import Navigation from './components/Navigation'
-import HeroSection from './components/HeroSection'
-import SkillsSection from './components/SkillsSection'
-import ProcessSection from './components/ProcessSection'
-import ProjectSection from './components/ProjectSection'
-import VisionSection from './components/VisionSection'
-import CTASection from './components/CTASection'
-import Footer from './components/Footer'
-import BackToTop from './components/BackToTop'
+import Navigation from '@/components/Navigation'
+import HeroSection from '@/components/HeroSection'
+import SkillsSection from '@/components/SkillsSection'
+import ProcessSection from '@/components/ProcessSection'
+import ProjectSection from '@/components/ProjectSection'
+import VisionSection from '@/components/VisionSection'
+import CTASection from '@/components/CTASection'
+import Footer from '@/components/Footer'
+import BackToTop from '@/components/BackToTop'
 
 export default function Home() {
   useEffect(() => {
