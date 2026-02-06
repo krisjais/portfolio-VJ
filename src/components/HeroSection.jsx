@@ -48,7 +48,7 @@ export default function HeroSection() {
 
           <div className="reveal active flex flex-wrap justify-center lg:justify-start gap-6 items-center">
             <a href="#projects" className="group relative px-12 py-6 bg-indigo-600 text-white font-black text-xs tracking-[0.2em] rounded-full overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-2xl shadow-indigo-500/20 uppercase">
-              <span className="relative z-10">View Portfolio</span>
+              <span className="relative z-10">View Projects</span>
               <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </a>
             
