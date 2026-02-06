@@ -13,7 +13,7 @@ export default function Footer() {
               Bridging the gap between <span className="text-indigo-500 font-bold">Artificial Intelligence</span> and <span className="text-indigo-500 font-bold">Web Development</span>. 70+ projects completed in a 6-month relentless sprint.
             </p>
             <div className="flex gap-4">
-              <a href="mailto:your-email@example.com" className="w-10 h-10 rounded-xl glass border border-slate-200 dark:border-slate-800 flex items-center justify-center hover:bg-indigo-600 hover:text-white transition-all shadow-sm"><i className="fa-solid fa-envelope"></i></a>
+              <a href="visheshjaiswar009@gmail.com" className="w-10 h-10 rounded-xl glass border border-slate-200 dark:border-slate-800 flex items-center justify-center hover:bg-indigo-600 hover:text-white transition-all shadow-sm"><i className="fa-solid fa-envelope"></i></a>
               <a href="https://linkedin.com/in/yourusername" className="w-10 h-10 rounded-xl glass border border-slate-200 dark:border-slate-800 flex items-center justify-center hover:bg-indigo-600 hover:text-white transition-all shadow-sm"><i className="fa-brands fa-linkedin-in"></i></a>
               <a href="https://github.com/yourusername" className="w-10 h-10 rounded-xl glass border border-slate-200 dark:border-slate-800 flex items-center justify-center hover:bg-indigo-600 hover:text-white transition-all shadow-sm"><i className="fa-brands fa-github"></i></a>
             </div>
@@ -35,7 +35,7 @@ export default function Footer() {
             <h4 className="text-[10px] font-black uppercase tracking-[0.3em] mb-6 text-indigo-500">Employment</h4>
             <p className="text-sm font-medium text-slate-600 dark:text-slate-300 mb-6">Open for Full-Stack & Frontend Roles.</p>
             <a href="mailto:your-email@example.com" className="inline-block px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-black text-[10px] tracking-widest rounded-full hover:bg-indigo-600 dark:hover:bg-indigo-500 dark:hover:text-white transition-all shadow-xl uppercase">
-              Hire the Sprint
+              Connect With Me
             </a>
           </div>
         </div>

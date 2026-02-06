@@ -63,16 +63,8 @@ export default function Navigation() {
             </a>
           </div>
 
-          {/* Theme & Menu Controls */}
-          <div className="flex items-center gap-4 border-l dark:border-slate-800 pl-6">
-            <button 
-              id="theme-toggle" 
-              className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-900/50 text-indigo-500 border border-transparent hover:border-indigo-500/20 transition-all active:scale-90"
-              aria-label="Toggle Theme"
-            >
-              <i id="theme-icon" className="fa-solid fa-moon"></i>
-            </button>
-            
+          {/* Menu Controls */}
+          <div className="flex items-center gap-4">
             {/* Mobile Menu Trigger */}
             <button 
               onClick={toggleMobileMenu}

@@ -36,7 +36,7 @@ export default function HeroSection() {
             Available for New Projects
           </div>
 
-          <h1 className="reveal active text-7xl md:text-[120px] font-black tracking-tighter leading-[0.8] mb-8 uppercase text-slate-900 dark:text-white">
+          <h1 className="reveal active text-7xl md:text-[120px] font-semibold tracking-tighter leading-[0.8] mb-8 uppercase text-slate-900 dark:text-white">
             Vishesh <br/> 
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-500 italic font-light">Jaiswar.</span>
           </h1>
@@ -54,8 +54,8 @@ export default function HeroSection() {
             
             <div className="flex gap-8 px-6 py-4 rounded-full border border-slate-200 dark:border-white/5 backdrop-blur-sm">
               <a href="https://github.com/krisjais" target="_blank" className="text-slate-400 hover:text-indigo-500 transition-colors"><i className="fa-brands fa-github text-2xl"></i></a>
-              <a href="#" className="text-slate-400 hover:text-indigo-500 transition-colors"><i className="fa-brands fa-linkedin text-2xl"></i></a>
-              <a href="#" className="text-slate-400 hover:text-indigo-500 transition-colors"><i className="fa-brands fa-figma text-2xl"></i></a>
+              <a href="https://www.linkedin.com/in/vishesh-jaiswar-5a0b94394/" className="text-slate-400 hover:text-indigo-500 transition-colors"><i className="fa-brands fa-linkedin text-2xl"></i></a>
+              <a href="https://www.figma.com/design/hbGRWT7vO8RAGhEK5DOqqc/VJ?node-id=9-10&t=iO4rJ1Gl3foep7CT-1" className="text-slate-400 hover:text-indigo-500 transition-colors"><i className="fa-brands fa-figma text-2xl"></i></a>
             </div>
           </div>
         </div>
