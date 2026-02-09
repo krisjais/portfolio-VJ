@@ -1,24 +1,26 @@
+import Image from 'next/image'
+
 export default function AchievementGallery() {
   const achievements = [
     {
       title: "AI For All",
       status: "Verified",
       description: "Foundational understanding of Artificial Intelligence and its impact on the digital economy.",
-      img: "/My_Certificate_page-0001.jpg", // Replace with your actual certificate image path
+      img: "/My_Certificate_page-0001.jpg",
       tag: "Awareness"
     },
     {
       title: "AI Aware",
       status: "Certified",
       description: "Deep dive into AI ethics, data privacy, and the building blocks of machine learning.",
-      img: "/Vishesh Jaiswar_AI_Aware_CERTIFICATE.png", // Replace with your actual badge image path
+      img: "/Vishesh Jaiswar_AI_AWARE_CERTIFICATE.png",
       tag: "Literacy"
     },
     {
       title: "AI Appreciate",
       status: "Advanced",
       description: "Practical appreciation of AI solutions and their integration into modern web workflows.",
-      img: "/Vishesh Jaiswar_AI_Appreciate_CERTIFICATE.png", // Replace with your actual badge image path
+      img: "/Vishesh Jaiswar_AI_APPRECIATE_CERTIFICATE.png",
       tag: "Mastery"
     }
   ];
@@ -45,11 +47,13 @@ export default function AchievementGallery() {
                 <div className="absolute inset-0 bg-indigo-600/20 opacity-0 group-hover:opacity-100 transition-opacity z-10 flex items-center justify-center">
                    <i className="fa-solid fa-magnifying-glass-plus text-3xl text-white"></i>
                 </div>
-                {/* Replace src with your actual image path */}
-                <img 
+                <Image 
                   src={item.img}
-                  alt={item.title} 
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
+                  alt={item.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 33vw"
+                  className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
+                  unoptimized
                 />
               </div>
 
