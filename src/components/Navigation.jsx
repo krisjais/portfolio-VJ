@@ -13,32 +13,12 @@ export default function Navigation() {
     setMobileMenuOpen(false)
   }
 
-  // Smooth scroll with offset for fixed navbar
-  const handleSmoothScroll = (e, targetId) => {
-    e.preventDefault()
-    const target = document.querySelector(targetId)
-    if (target) {
-      const navbarHeight = 80 // Approximate navbar height
-      const targetPosition = target.offsetTop - navbarHeight
-      
-      window.scrollTo({
-        top: targetPosition,
-        behavior: 'smooth'
-      })
-    }
-    closeMobileMenu()
-  }
-
   return (
     <>
       <nav className="fixed top-0 w-full z-50 glass border-b border-slate-200 py-4 px-6 md:px-20 flex justify-between items-center backdrop-blur-md">
         
         {/* Brand / Home Link */}
-        <a 
-          href="#home" 
-          onClick={(e) => handleSmoothScroll(e, '#home')}
-          className="flex items-center gap-3 group cursor-pointer"
-        >
+        <a href="#home" className="flex items-center gap-3 group cursor-pointer">
           <div className="text-2xl font-black tracking-tighter text-indigo-600 uppercase">
            VJ<span className="text-slate-400 group-hover:text-indigo-500 transition-colors">.</span>
           </div>
@@ -57,47 +37,27 @@ export default function Navigation() {
         <div className="flex items-center gap-10">
           <div className="hidden lg:flex gap-8 text-[10px] font-black uppercase tracking-[0.3em] text-slate-500">
             
-            <a 
-              href="#home" 
-              onClick={(e) => handleSmoothScroll(e, '#home')}
-              className="hover:text-indigo-500 transition-all relative group"
-            >
+            <a href="#home" className="hover:text-indigo-500 transition-all relative group">
               Home
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-500 group-hover:w-full transition-all duration-300"></span>
             </a>
 
-            <a 
-              href="#skills" 
-              onClick={(e) => handleSmoothScroll(e, '#skills')}
-              className="hover:text-indigo-500 transition-all relative group"
-            >
+            <a href="#skills" className="hover:text-indigo-500 transition-all relative group">
               Toolkit
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-500 group-hover:w-full transition-all duration-300"></span>
             </a>
 
-            <a 
-              href="#learning" 
-              onClick={(e) => handleSmoothScroll(e, '#learning')}
-              className="hover:text-indigo-500 transition-all relative group"
-            >
+            <a href="#learning" className="hover:text-indigo-500 transition-all relative group">
               Pursuing
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-500 group-hover:w-full transition-all duration-300"></span>
             </a>
 
-            <a 
-              href="#achievements" 
-              onClick={(e) => handleSmoothScroll(e, '#achievements')}
-              className="hover:text-indigo-500 transition-all relative group"
-            >
+            <a href="#achievements" className="hover:text-indigo-500 transition-all relative group">
               Credentials
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-500 group-hover:w-full transition-all duration-300"></span>
             </a>
 
-            <a 
-              href="#contact" 
-              onClick={(e) => handleSmoothScroll(e, '#contact')}
-              className="hover:text-indigo-500 transition-all relative group text-indigo-500"
-            >
+            <a href="#contact" className="hover:text-indigo-500 transition-all relative group text-indigo-500">
               Connect
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-500 group-hover:w-full transition-all duration-300"></span>
             </a>
@@ -130,7 +90,7 @@ export default function Navigation() {
         <div className="flex flex-col p-6 gap-6">
           <a 
             href="#home" 
-            onClick={(e) => handleSmoothScroll(e, '#home')}
+            onClick={closeMobileMenu}
             className="text-sm font-black uppercase tracking-[0.3em] text-slate-500 hover:text-indigo-500 transition-all py-3 border-b border-slate-200"
           >
             Home
@@ -138,7 +98,7 @@ export default function Navigation() {
 
           <a 
             href="#skills" 
-            onClick={(e) => handleSmoothScroll(e, '#skills')}
+            onClick={closeMobileMenu}
             className="text-sm font-black uppercase tracking-[0.3em] text-slate-500 hover:text-indigo-500 transition-all py-3 border-b border-slate-200"
           >
             Toolkit
@@ -146,7 +106,7 @@ export default function Navigation() {
 
           <a 
             href="#learning" 
-            onClick={(e) => handleSmoothScroll(e, '#learning')}
+            onClick={closeMobileMenu}
             className="text-sm font-black uppercase tracking-[0.3em] text-slate-500 hover:text-indigo-500 transition-all py-3 border-b border-slate-200"
           >
             Pursuing
@@ -154,7 +114,7 @@ export default function Navigation() {
 
           <a 
             href="#achievements" 
-            onClick={(e) => handleSmoothScroll(e, '#achievements')}
+            onClick={closeMobileMenu}
             className="text-sm font-black uppercase tracking-[0.3em] text-slate-500 hover:text-indigo-500 transition-all py-3 border-b border-slate-200"
           >
             Credentials
@@ -162,7 +122,7 @@ export default function Navigation() {
 
           <a 
             href="#contact" 
-            onClick={(e) => handleSmoothScroll(e, '#contact')}
+            onClick={closeMobileMenu}
             className="text-sm font-black uppercase tracking-[0.3em] text-indigo-500 hover:text-indigo-600 transition-all py-3 border-b border-slate-200"
           >
             Connect

@@ -19,11 +19,6 @@
   }
 }
 
-/* Smooth scrolling for the entire page */
-html {
-  scroll-behavior: smooth;
-}
-
 /* Simple glassmorphism utility used across components */
 .glass {
   background-color: rgba(255,255,255,0.6);
