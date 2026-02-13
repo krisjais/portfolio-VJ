@@ -1,6 +1,28 @@
+'use client'
+
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
 
 export default function AchievementGallery() {
+  const [selected, setSelected] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openModal = (achievement) => {
+    setSelected(achievement);
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+    setSelected(null);
+  };
+
+  useEffect(() => {
+    const onKey = (e) => { if (e.key === "Escape") closeModal(); };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
   const achievements = [
     {
       title: "AI For All",
@@ -41,7 +63,7 @@ export default function AchievementGallery() {
         {/* Certificate Gallery */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {achievements.map((item, index) => (
-            <div key={index} className="reveal group">
+            <div key={index} className="reveal group cursor-pointer" onClick={() => openModal(item)}>
               {/* Photo Frame */}
               <div className="relative aspect-[4/3] mb-6 rounded-3xl overflow-hidden bg-slate-900 border border-white/10 group-hover:border-indigo-500/50 transition-all duration-500 shadow-2xl">
                 <div className="absolute inset-0 bg-indigo-600/20 opacity-0 group-hover:opacity-100 transition-opacity z-10 flex items-center justify-center">
@@ -75,6 +97,41 @@ export default function AchievementGallery() {
             </div>
           ))}
         </div>
+
+        {/* Modal */}
+        {isOpen && selected && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80" onClick={closeModal}>
+            <div className="bg-white rounded-2xl max-w-4xl w-full mx-4 overflow-hidden shadow-xl" onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true">
+              <div className="relative">
+                <Image 
+                  src={selected.img} 
+                  alt={selected.title} 
+                  width={800}
+                  height={600}
+                  className="w-full h-[70vh] object-contain bg-gray-50" 
+                  unoptimized
+                />
+                <button 
+                  onClick={closeModal} 
+                  className="absolute top-4 right-4 bg-white/90 hover:bg-white rounded-full p-3 shadow-lg transition-all hover:scale-110"
+                  aria-label="Close modal"
+                >
+                  <i className="fa-solid fa-times text-slate-700 text-lg"></i>
+                </button>
+              </div>
+              <div className="p-6 bg-white">
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="px-3 py-1 bg-indigo-500/10 text-indigo-500 text-xs font-black uppercase tracking-tighter rounded-full border border-indigo-500/20">
+                    {selected.tag}
+                  </span>
+                  <span className="text-xs font-bold text-green-500 uppercase tracking-widest">{selected.status}</span>
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-2">{selected.title}</h3>
+                <p className="text-slate-600 leading-relaxed">{selected.description}</p>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Bottom Banner */}
         <div className="mt-24 p-1 bg-gradient-to-r from-transparent via-indigo-500/50 to-transparent">
