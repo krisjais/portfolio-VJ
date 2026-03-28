@@ -95,17 +95,27 @@ export default function ProjectGallery() {
 
         {/* Modal */}
         {isOpen && selected && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60" onClick={closeModal}>
-            <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-4xl w-full mx-4 overflow-hidden shadow-xl" onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true">
-              <div className="relative">
-                <img src={selected.image} alt={selected.title} className="w-full h-[60vh] object-cover" />
-                <button onClick={closeModal} className="absolute top-4 right-4 bg-white/60 dark:bg-slate-800/60 rounded-full p-2 hover:bg-white">
-                  <span className="text-xl">✕</span>
+          <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-md animate-fadeIn" onClick={closeModal}>
+            <div className="bg-white dark:bg-slate-900 rounded-[2.5rem] max-w-4xl w-full mx-4 overflow-hidden shadow-2xl animate-scaleUp border border-white/10" onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true">
+              <div className="relative group/modal">
+                <img src={selected.image} alt={selected.title} className="w-full h-[65vh] object-cover" />
+                <button 
+                  onClick={closeModal} 
+                  className="absolute top-6 right-6 bg-white/20 hover:bg-white/40 backdrop-blur-md dark:bg-slate-800/40 dark:hover:bg-slate-800/60 rounded-full w-12 h-12 flex items-center justify-center transition-all hover:rotate-90 duration-300"
+                >
+                  <span className="text-2xl text-white">✕</span>
                 </button>
               </div>
-              <div className="p-6">
-                <h3 className="text-2xl font-bold">{selected.title}</h3>
-                <p className="text-sm text-slate-500 mt-2">{selected.tech}</p>
+              <div className="p-10">
+                <div className="flex justify-between items-start">
+                  <div>
+                    <h3 className="text-4xl font-black tracking-tighter uppercase">{selected.title}</h3>
+                    <p className="text-sm font-bold text-indigo-500 uppercase tracking-widest mt-2">{selected.tech}</p>
+                  </div>
+                  <a href="#" className="px-8 py-3 bg-indigo-600 text-white text-[10px] font-black uppercase tracking-widest rounded-full hover:bg-indigo-700 transition-all hover:scale-105 active:scale-95 shadow-xl shadow-indigo-500/20">
+                    Live Preview
+                  </a>
+                </div>
               </div>
             </div>
           </div>
