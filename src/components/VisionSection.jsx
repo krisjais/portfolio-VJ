@@ -6,6 +6,7 @@ import Image from 'next/image'
 export default function AchievementGallery() {
   const [selected, setSelected] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
+  const [showAll, setShowAll] = useState(false);
 
   const openModal = (achievement) => {
     setSelected(achievement);
@@ -104,8 +105,8 @@ export default function AchievementGallery() {
 
         {/* Certificate Gallery */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {achievements.map((item, index) => (
-            <div key={index} className="reveal group cursor-pointer" onClick={() => openModal(item)}>
+          {(showAll ? achievements : achievements.slice(0, 3)).map((item, index) => (
+            <div key={index} className={`group cursor-pointer ${index < 3 ? 'reveal' : 'animate-fadeIn'}`} onClick={() => openModal(item)}>
               {/* Photo Frame */}
               <div className="relative aspect-[4/3] mb-6 rounded-3xl overflow-hidden bg-slate-900 border border-white/10 group-hover:border-indigo-500/50 transition-all duration-500 shadow-2xl">
                 <div className="absolute inset-0 bg-indigo-600/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex items-center justify-center backdrop-blur-[2px]">
@@ -139,6 +140,19 @@ export default function AchievementGallery() {
             </div>
           ))}
         </div>
+
+        {/* View All Button */}
+        {achievements.length > 3 && (
+          <div className="flex justify-center mt-12">
+            <button 
+              onClick={() => setShowAll(!showAll)}
+              className="px-8 py-4 bg-indigo-600/10 hover:bg-indigo-600/30 text-indigo-400 hover:text-indigo-300 border border-indigo-500/20 hover:border-indigo-500/50 rounded-[2rem] font-bold tracking-widest uppercase transition-all duration-300 flex items-center gap-3 group backdrop-blur-md"
+            >
+              {showAll ? 'Show Less' : 'View All Certificates'}
+              <i className={`fa-solid fa-chevron-${showAll ? 'up' : 'down'} transition-transform duration-300 group-hover:translate-y-[2px]`}></i>
+            </button>
+          </div>
+        )}
 
         {/* Bottom Banner */}
         <div className="mt-24 p-1 bg-gradient-to-r from-transparent via-indigo-500/50 to-transparent">
