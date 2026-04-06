@@ -44,6 +44,48 @@ export default function AchievementGallery() {
       description: "Practical appreciation of AI solutions and their integration into modern web workflows.",
       img: "/Vishesh Jaiswar_AI_APPRECIATE_CERTIFICATE.png",
       tag: "Mastery"
+    },
+    {
+      title: "AI Fluency for Students",
+      status: "Verified",
+      description: "Foundational knowledge and literacy in generative AI for students.",
+      img: "/AI Fluency for Students-1.png",
+      tag: "Anthropic"
+    },
+    {
+      title: "AI Fluency for Nonprofits",
+      status: "Verified",
+      description: "AI adoption and ethical considerations for nonprofit organizations.",
+      img: "/AI Fluency for Nonprofits-1.png",
+      tag: "Anthropic"
+    },
+    {
+      title: "AI Fluency for Educators",
+      status: "Verified",
+      description: "Equipping educators with the knowledge to integrate AI in the classroom.",
+      img: "/AI Fluency for Educators-1.png",
+      tag: "Anthropic"
+    },
+    {
+      title: "AI Fluency: Framework",
+      status: "Advanced",
+      description: "Comprehensive framework and foundations of AI fluency.",
+      img: "/AI Fluency_ Framwork  Foundation-1.png",
+      tag: "Anthropic"
+    },
+    {
+      title: "Teaching AI Fluency",
+      status: "Mastery",
+      description: "Applying the AI framework to effectively teach AI concepts.",
+      img: "/Teaching AI Fluency Framework-1.png",
+      tag: "Anthropic"
+    },
+    {
+      title: "Claude 101",
+      status: "Verified",
+      description: "Understanding the fundamentals of using Claude effectively.",
+      img: "/Claude 101-1.png",
+      tag: "Anthropic"
     }
   ];
 
