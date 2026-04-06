@@ -98,63 +98,6 @@ export default function AchievementGallery() {
           ))}
         </div>
 
-        {/* Modal */}
-        {isOpen && selected && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-xl animate-fadeIn p-4 md:p-8" onClick={closeModal}>
-            {/* Direct Screen-Level Close Button for Maximum Accessibility */}
-            <button 
-              onClick={closeModal} 
-              className="fixed top-6 right-6 md:top-10 md:right-10 z-[110] bg-white text-slate-900 rounded-full w-12 h-12 flex items-center justify-center transition-all hover:rotate-90 hover:scale-110 duration-300 shadow-2xl"
-              aria-label="Close modal"
-            >
-              <i className="fa-solid fa-times text-xl"></i>
-            </button>
-
-            <div className="bg-white dark:bg-slate-900 rounded-[2rem] max-w-5xl w-full max-h-[90vh] overflow-y-auto shadow-2xl animate-scaleUp border border-white/10" onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true">
-              <div className="flex flex-col md:flex-row h-full">
-                
-                {/* Image Section (left/top) */}
-                <div className="w-full md:w-2/3 bg-slate-100 dark:bg-slate-950 flex items-center justify-center p-6 md:p-10">
-                  <div className="relative w-full aspect-[1.414/1] shadow-2xl rounded-lg overflow-hidden border border-white/5">
-                    <Image 
-                      src={selected.img} 
-                      alt={selected.title} 
-                      fill
-                      className="object-contain" 
-                      unoptimized
-                    />
-                  </div>
-                </div>
-
-                {/* Details Section (right/bottom) */}
-                <div className="w-full md:w-1/3 p-8 md:p-12 flex flex-col justify-between bg-white dark:bg-slate-900">
-                  <div>
-                    <div className="flex items-center gap-3 mb-6">
-                      <span className="px-3 py-1 bg-indigo-500/10 text-indigo-500 text-[10px] font-black uppercase tracking-tighter rounded-full border border-indigo-500/20">
-                        {selected.tag}
-                      </span>
-                      <span className="text-[10px] font-bold text-green-500 uppercase tracking-widest">{selected.status}</span>
-                    </div>
-                    
-                    <h3 className="text-3xl font-black tracking-tighter uppercase text-slate-900 dark:text-white mb-6 leading-tight">{selected.title}</h3>
-                    <p className="text-slate-500 dark:text-slate-400 leading-relaxed text-sm mb-8 font-light italic">
-                      {selected.description}
-                    </p>
-                  </div>
-
-                  <button 
-                    onClick={closeModal}
-                    className="w-full py-4 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white text-xs font-black uppercase tracking-widest rounded-2xl hover:bg-slate-200 dark:hover:bg-slate-700 transition-all active:scale-95"
-                  >
-                    Close Certificate
-                  </button>
-                </div>
-
-              </div>
-            </div>
-          </div>
-        )}
-
         {/* Bottom Banner */}
         <div className="mt-24 p-1 bg-gradient-to-r from-transparent via-indigo-500/50 to-transparent">
            <div className="bg-slate-950 py-8 text-center">
@@ -164,6 +107,63 @@ export default function AchievementGallery() {
            </div>
         </div>
       </div>
+
+      {/* Modal - Moved outside the z-10 container to avoid overlap with navbar */}
+      {isOpen && selected && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-xl animate-fadeIn p-4 md:p-8" onClick={closeModal}>
+          {/* Direct Screen-Level Close Button for Maximum Accessibility */}
+          <button 
+            onClick={closeModal} 
+            className="fixed top-6 right-6 md:top-10 md:right-10 z-[110] bg-white text-slate-900 rounded-full w-12 h-12 flex items-center justify-center transition-all hover:rotate-90 hover:scale-110 duration-300 shadow-2xl"
+            aria-label="Close modal"
+          >
+            <i className="fa-solid fa-times text-xl"></i>
+          </button>
+
+          <div className="bg-white dark:bg-slate-900 rounded-[2rem] max-w-5xl w-full max-h-[90vh] overflow-y-auto shadow-2xl animate-scaleUp border border-white/10" onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true">
+            <div className="flex flex-col md:flex-row h-full">
+              
+              {/* Image Section (left/top) */}
+              <div className="w-full md:w-2/3 bg-slate-100 dark:bg-slate-950 flex items-center justify-center p-6 md:p-10">
+                <div className="relative w-full aspect-[1.414/1] shadow-2xl rounded-lg overflow-hidden border border-white/5">
+                  <Image 
+                    src={selected.img} 
+                    alt={selected.title} 
+                    fill
+                    className="object-contain" 
+                    unoptimized
+                  />
+                </div>
+              </div>
+
+              {/* Details Section (right/bottom) */}
+              <div className="w-full md:w-1/3 p-8 md:p-12 flex flex-col justify-between bg-white dark:bg-slate-900">
+                <div>
+                  <div className="flex items-center gap-3 mb-6">
+                    <span className="px-3 py-1 bg-indigo-500/10 text-indigo-500 text-[10px] font-black uppercase tracking-tighter rounded-full border border-indigo-500/20">
+                      {selected.tag}
+                    </span>
+                    <span className="text-[10px] font-bold text-green-500 uppercase tracking-widest">{selected.status}</span>
+                  </div>
+                  
+                  <h3 className="text-3xl font-black tracking-tighter uppercase text-slate-900 dark:text-white mb-6 leading-tight">{selected.title}</h3>
+                  <p className="text-slate-500 dark:text-slate-400 leading-relaxed text-sm mb-8 font-light italic">
+                    {selected.description}
+                  </p>
+                </div>
+
+                <button 
+                  onClick={closeModal}
+                  className="w-full py-4 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white text-xs font-black uppercase tracking-widest rounded-2xl hover:bg-slate-200 dark:hover:bg-slate-700 transition-all active:scale-95"
+                >
+                  Close Certificate
+                </button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
