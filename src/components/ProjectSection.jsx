@@ -29,7 +29,7 @@ export default function ProjectGallery() {
     },
     {
       title: "Ecommerce Platform",
-      tech: "React • Tailwind • Stripe",
+      tech: "Tailwind • Stripe",
       image: "/Screenshot (231).png",
     },
     {
