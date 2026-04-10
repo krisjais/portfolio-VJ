@@ -112,7 +112,7 @@ export default function ProjectGallery() {
                     <h3 className="text-4xl font-black tracking-tighter uppercase">{selected.title}</h3>
                     <p className="text-sm font-bold text-indigo-500 uppercase tracking-widest mt-2">{selected.tech}</p>
                   </div>
-                  <a href="#" className="px-8 py-3 bg-indigo-600 text-white text-[10px] font-black uppercase tracking-widest rounded-full hover:bg-indigo-700 transition-all hover:scale-105 active:scale-95 shadow-xl shadow-indigo-500/20">
+                  <a href="https://github.com/krisjais/Tailwind-Project" className="px-8 py-3 bg-indigo-600 text-white text-[10px] font-black uppercase tracking-widest rounded-full hover:bg-indigo-700 transition-all hover:scale-105 active:scale-95 shadow-xl shadow-indigo-500/20">
                     Live Preview
                   </a>
                 </div>
